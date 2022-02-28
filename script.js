@@ -2,41 +2,58 @@
 
 var generateBtn = document.querySelector("#generate");
 
+//assigned variables used in password generator
 var letters = "abcdefghijklmnopqrstuvwxyz";
-  var special = "!@#$%^&*(){}|:<.,>?-+/';']/";
-  var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  var number = "0123456789";
+var special = "!@#$%^&*(){}|:<.,>?-+/';']/";
+var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var number = "0123456789";
+// variable to ensure all characters are applied when password is generated
+var all = "";
 
+
+// determine number of characters needed 
 function generatePassword() {
   var count = Number(prompt("Please enter the amount of characters you would like in your password."));
-  console.log(count);
+  console.log('count!!!!', count);
 
   // count greater than 8 or less than 128
-  if (count < 8 || count > 128){
-      alert('Please choose between 8 and 128 characters.');
-      return "";
+  // console.log('type of thing!!', typeof count)
+
+  if (!count || count < 8 || count > 128) {
+    alert('Please choose between 8 and 128 characters.');
+    alert('Please type number!');
+    return " ";
+  } else {
+
+    if (confirm("Would you like to include undercase letters?")) {
+      all += letters;
+    }
+
+    if (confirm("Would you like to include uppercase letters?")) {
+      all += uppercase;
+    }
+
+    if (confirm("Would you like to include special characters?")) {
+      all += special;
+    }
+
+    if (confirm("Would you like to include numbers?")) {
+      all += number;
+    }
+
+    var genPassword = "";
+    for (var i = 0; i < count; i++) {
+      var random = Math.floor(Math.random() * all.length);
+      genPassword += all[Math.floor(Math.random() * all.length)];
+    }
+    // runs the function to generate password
+    return genPassword;
+
   }
 
-  
-
-  var genPassword = "";
-  for (var i = 0; i < count; i++){
-      var random = Math.floor(Math.random() * letters.length);
-      genPassword += letters[Math.floor(Math.random() * letters.length)];
-  }
-  
-  return genPassword;
-
-  // var specialChar = Number(prompt("Would you like to include special characters?"));
-  // console.log(specialChar);
-
-
-  // for (var i = 0; i < count, i++){
-  //   var random = Math.floor(Math.random() * special.length);
-  //   genPassword += special[Math.floor(Math.random() * special.length)];
-  // }
 
 }
+
 
 // Write password to the #password input
 function writePassword() {
@@ -49,7 +66,3 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
-
-
-
