@@ -12,7 +12,7 @@
 This is a password generator I created using javascript.
 
 ## Usage
-When the app is deployed and you click generate password, the user is prompted to input the number of characters needed for the password (between 8-128). A series of prompts are then given to ask user if they would like to include lowercase, uppercase, numbers, and special characters in the password. After the user selects the characters they would like, a password is generated in the text area.
+When the app is deployed and the user clicks 'generate password', the user is prompted to input the number of characters desired for the password (between 8-128). A series of prompts are then given to ask user if they would like to include lowercase, uppercase, numbers, and special characters in the password. After the user selects the characters they would like, a password is generated in the text area.
 
 ## Visuals
 
