@@ -40,7 +40,7 @@ function generatePassword() {
       all += number;
     }
 
-    if (all === ""){
+    if (all === "") {
       alert('Please select at least one type of character to generate a password.');
       return " ";
     }
@@ -50,9 +50,9 @@ function generatePassword() {
       var random = Math.floor(Math.random() * all.length);
       genPassword += all[random];
     }
-    }
-    // runs the function to generate password
-    return genPassword;
+  }
+  // runs the function to generate password
+  return genPassword;
 }
 
 
